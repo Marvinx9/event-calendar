@@ -8,16 +8,21 @@ export const eventosFiltradosState = selector({
     const todosOsEventos = get(listaDeEventosState);
 
     const eventos = todosOsEventos.filter((evento) => {
-      return filtro.data && filtro.status
-        ? filtro.data.toISOString().slice(0, 10) ===
-            evento.inicio.toISOString().slice(0, 10) &&
-            filtro.status === evento.completo
-        : filtro.data
+      const filtroData = filtro.data
         ? filtro.data.toISOString().slice(0, 10) ===
           evento.inicio.toISOString().slice(0, 10)
-        : filtro.status
-        ? filtro.status === evento.completo
         : true;
+
+      const filtroStatus =
+        filtro.status === "0"
+          ? true
+          : filtro.status === "1"
+          ? evento.completo === true
+          : filtro.status === "2"
+          ? evento.completo === false
+          : true;
+
+      return filtroData && filtroStatus;
     });
     return eventos;
   },

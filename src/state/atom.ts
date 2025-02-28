@@ -9,7 +9,7 @@ export const listaDeEventosState = atom<IEvento[]>({
       descricao: "Estudar React",
       inicio: new Date("2025-02-26T09:00"),
       fim: new Date("2025-02-26T13:00"),
-      completo: false,
+      completo: true,
       id: 1642342747,
     },
     {

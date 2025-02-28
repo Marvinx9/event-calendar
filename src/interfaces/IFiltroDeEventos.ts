@@ -1,4 +1,4 @@
 export interface IFiltroDeEventos {
   data?: Date | null;
-  status?: boolean | null;
+  status?: string | null;
 }

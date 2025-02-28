@@ -22,10 +22,11 @@ const Filtro: React.FC = () => {
     }
 
     if (status) {
-      filtro.status = true;
+      filtro.status = status;
     } else {
-      filtro.status = false;
+      filtro.status = null;
     }
+
     setFiltroDeEvento(filtro);
   };
 
@@ -48,9 +49,9 @@ const Filtro: React.FC = () => {
         onChange={(evento) => setStatus(evento.target.value)}
         value={status}
       >
-        <option value="false">todos</option>
-        <option value="true">completo</option>
-        <option value="false">incompleto</option>
+        <option value={0}>todos</option>
+        <option value={1}>completo</option>
+        <option value={2}>incompleto</option>
       </select>
       <button className={style.botao}>Filtrar</button>
     </form>
