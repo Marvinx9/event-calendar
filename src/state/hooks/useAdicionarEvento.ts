@@ -1,11 +1,11 @@
 import { useSetRecoilState } from "recoil";
 import { listaDeEventosState } from "../atom";
 import { IEvento } from "../../interfaces/IEvento";
-import { obterId } from "../../util";
+import { createEventoAsync } from "../seletores";
 
 const useAdicionarEvento = () => {
   const setListDeEventos = useSetRecoilState<IEvento[]>(listaDeEventosState);
-  return (evento: IEvento) => {
+  return async (evento: Omit<IEvento, "id">) => {
     const hoje = new Date();
 
     if (evento.inicio < hoje) {
@@ -13,8 +13,15 @@ const useAdicionarEvento = () => {
         "Eventos não podem ser cadastrados com data menor do que a atual."
       );
     }
-    evento.id = obterId();
-    return setListDeEventos((listaAntiga) => [...listaAntiga, evento]);
+
+    const id = await createEventoAsync(evento);
+
+    if (id) {
+      return setListDeEventos((listaAntiga) => [
+        ...listaAntiga,
+        { ...evento, id },
+      ]);
+    }
   };
 };
 

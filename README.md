@@ -1,46 +1,79 @@
-# Getting Started with Create React App
+# Event Calendar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Sobre o Projeto
 
-## Available Scripts
+O **Event Calendar** é um gerenciador de eventos desenvolvido em **React** com **Recoil** para gerenciamento de estado. A aplicação permite que os usuários **criem, editem, excluam e listem** eventos agendados, além de **filtrar** os eventos por **status** ou **data**.
 
-In the project directory, you can run:
+A interface utiliza a biblioteca **Kalendar** para exibição dos eventos de forma intuitiva e organizada. O projeto se conecta a um **back-end** via API e pode ser executado em um ambiente **Docker**.
 
-### `npm start`
+## 🚀 Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React** - Biblioteca principal para construção da interface
+- **Recoil** - Gerenciamento de estado global
+- **Kalendar (npm)** - Biblioteca para exibição e manipulação de eventos no calendário
+- **Docker** - Containerização da aplicação
+- **Fetch API** - Comunicação com o back-end
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🎯 Funcionalidades
 
-### `npm test`
+✅ Criar novos eventos
+✅ Editar eventos existentes
+✅ Excluir eventos
+✅ Listar todos os eventos
+✅ Filtrar eventos por **status** ou **data**
+✅ Integração com API do back-end
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Como Executar o Projeto
 
-### `npm run build`
+### 🔹 Pré-requisitos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Antes de começar, você precisará ter instalado em sua máquina:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Docker**
+- **Node.js** (caso queira rodar fora do Docker)
+- **Gerenciador de pacotes** (npm ou yarn)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🔹 Clonar o repositórios e deixar na mesma hierarquia
 
-### `npm run eject`
+```sh
+  git clone https://github.com/Marvinx9/event-calendar
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+e
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+  git clone https://github.com/Marvinx9/event-calendar-api
+  cd event-calendar-api
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 🔹 Rodando com Docker
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+  docker-compose up --build
+```
 
-## Learn More
+### 🔹 Rodando sem Docker
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+  npm install  # ou yarn install
+  npm start    # ou yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+A aplicação estará disponível em: **http://localhost:3000**
+
+## 🔗 Conexão com o Back-end
+
+O front-end se comunica com o back-end através de requisições HTTP. As principais rotas utilizadas são:
+
+- `GET /agendamentos` → Lista todos os eventos
+- `POST /agendamentos` → Cria um novo evento
+- `PUT /agendamentos/:id` → Atualiza um evento existente
+- `DELETE /agendamentos/:id` → Remove um evento
+
+## 📸 Demonstração
+
+![Tela inicial](public/tela-inicial.png)
+
+## 📄 Licença
+
+Este projeto está sob a licença **MIT**. Sinta-se à vontade para usá-lo e modificá-lo! 😊
