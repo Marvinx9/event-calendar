@@ -1,6 +1,6 @@
 .Container {
   max-width: 100%;
-  height: 100%;
+  height: 100vh;
   max-height: 100%;
   width: 100%;
   box-sizing: border-box;
@@ -8,4 +8,5 @@
   border: 1px solid #fff;
   border-radius: 1rem;
   background: #fff;
+  overflow: hidden;
 }

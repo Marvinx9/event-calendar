@@ -1,6 +1,6 @@
 {
-  "short_name": "Alura Event Tracker",
-  "name": "Alura Event Tracker",
+  "short_name": "Event Calendar",
+  "name": "Event Calendar",
   "icons": [
     {
       "src": "favicon.ico",
